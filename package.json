@@ -24,7 +24,7 @@
     "@polkadot/rpc-core": "1.2.1"
   },
   "dependencies": {
-    "@plugnet/plug-api-types": "git+https://github.com/plugblockchain/plug-api-types.git#develop",
-    "@polkadot/api": "1.2.1"
+    "@cennznet/api": "1.0.0",
+    "@plugnet/keyring": "1.1.100"
   }
 }
