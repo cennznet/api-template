@@ -4,6 +4,7 @@ const { reportBalances, transfer } = require('./generic_asset.js');
 const { Api } = require('@cennznet/api');
 const testingPairs = require('@polkadot/keyring/testingPairs');
 const keyring = testingPairs.default({ type: 'sr25519'});
+const cli = require('./cli.js');
 
 if (require.main === module) {
   run("ws://localhost:9944")
@@ -14,23 +15,14 @@ if (require.main === module) {
   });
 }
 
-
-function help(){
-	console.log(`Enter the command you want to call as arguments.\n
-	Supported Commands:
-	transfer <amount> <asset_id>: Alice will transfer some money to Bob
-	balances <asset_id>: Check current balances for Alice and Bob
-	`);
-}
-async function parseCommand(argv, api){
-	const cmd = argv[2];
-	console.log(`>>>${cmd}`);
-	switch(cmd) {
+async function parseCommand(settings, api){
+	console.log(`${settings}`);
+	switch(settings.command) {
 		case `transfer`:
-			await transfer(keyring, api, argv[3], argv[4]);
+			await transfer(keyring, api, settings.amount, settings.asset_id);
 			break;
 		case `balances`:
-			await reportBalances(keyring, api, argv[3]);
+			await reportBalances(keyring, api, settings.asset_id);
 			break;
 		default:
 			help();
@@ -55,18 +47,9 @@ async function run(address) {
 
 	console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
 	
-	var keepGoing = true;
+	const settings = cli.parseCli();
 
-	const getWord = () => {
-		return new Promise(resolve => {
-		  rl.question(">>>", function(cmd) {
-			  resolve(answer.split(''));
-		  });
-		});
-	  }
-
-	const argv = process.argv;
-	await parseCommand(argv, api);
+	await parseCommand(settings, api);
 
 }
 

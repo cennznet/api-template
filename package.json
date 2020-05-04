@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@cennznet/api": "1.0.0",
-    "@plugnet/keyring": "1.1.100"
+    "@plugnet/keyring": "1.1.100",
+    "argparse" : "1.0.10"
   }
 }
