@@ -5,9 +5,9 @@ if (require.main === module) {
   run("ws://localhost:9944")
     .then(result => process.exit(result))
     .catch(fail => {
-    console.error(`Error:`, fail);
-    process.exit(fail[0]);
-  });
+      console.error(`Error:`, fail);
+      process.exit(fail[0]);
+    });
 }
 
 async function run(address) {

@@ -1,21 +1,21 @@
 {
-  "name": "plug-api-template",
+  "name": "cennznet-api-template",
   "version": "1.0.0",
-  "description": "A template project for scripting against the Pl^g blockchain API",
+  "description": "A template project for scripting against the CENNZnet blockchain API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/plugblockchain/api-template.git"
+    "url": "git+https://github.com/cennznet/api-template.git"
   },
-  "author": "Pl^g Developers",
+  "author": "Centrality Developers",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/plugblockchain/api-template/issues"
+    "url": "https://github.com/cennznet/api-template/issues"
   },
-  "homepage": "https://github.com/plugblockchain/api-template#readme",
+  "homepage": "https://github.com/cennznet/api-template#readme",
   "resolutions": {
     "@polkadot/types": "1.2.1",
     "@polkadot/metadata": "1.2.1",
@@ -24,7 +24,7 @@
     "@polkadot/rpc-core": "1.2.1"
   },
   "dependencies": {
-    "@cennznet/api": "1.0.0",
-    "@plugnet/keyring": "1.1.100"
+    "@cennznet/api": "1.2.1",
+    "@polkadot/keyring": "2.3.1"
   }
 }
